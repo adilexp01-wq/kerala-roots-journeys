@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* TravelExp Design System - Kerala-inspired colors and gradients */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 99%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Kerala-inspired color palette */
+    --palm-green: 155 38% 25%;        /* #2E5E3E */
+    --sunset-orange: 20 86% 61%;      /* #F28444 */
+    --backwater-blue: 195 54% 34%;    /* #256D85 */
+    
+    --primary: var(--palm-green);
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 155 45% 35%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: var(--backwater-blue);
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: var(--sunset-orange);
+    --accent-foreground: 0 0% 98%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 155 15% 95%;
+    --muted-foreground: 155 15% 45%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 155 15% 90%;
+    --input: 155 15% 96%;
+    --ring: var(--palm-green);
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--palm-green)) 0%, hsl(var(--backwater-blue)) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(var(--sunset-orange)) 0%, hsl(20 90% 70%) 100%);
+    --gradient-card: linear-gradient(to bottom, hsl(0 0% 100%) 0%, hsl(155 10% 98%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--palm-green) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.2);
+
+    /* Custom properties */
+    --filter-chip-bg: hsl(var(--palm-green) / 0.1);
+    --filter-chip-active: hsl(var(--palm-green));
+    
+    /* Font family */
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +121,41 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+  }
+}
+
+@layer components {
+  /* Filter chips */
+  .filter-chip {
+    @apply px-4 py-2 rounded-full text-sm font-medium transition-all duration-200;
+    background: var(--filter-chip-bg);
+    color: hsl(var(--palm-green));
+  }
+  
+  .filter-chip-active {
+    background: var(--filter-chip-active);
+    color: hsl(var(--primary-foreground));
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Experience cards */
+  .experience-card {
+    @apply rounded-2xl overflow-hidden transition-transform duration-200 hover:scale-[1.02];
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Hero section */
+  .hero-bg {
+    background: var(--gradient-hero);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-sunset);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

@@ -10,6 +10,7 @@ import { Explore } from "./pages/Explore";
 import { Trips } from "./pages/Trips";
 import { Community } from "./pages/Community";
 import { Profile } from "./pages/Profile";
+import { Welcome } from "./pages/Welcome";
 import { AppLayout } from "./components/AppLayout";
 import NotFound from "./pages/NotFound";
 
@@ -21,19 +22,46 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AppLayout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/explore" element={<Explore />} />
-            <Route path="/trips" element={<Trips />} />
-            <Route path="/community" element={<Community />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/experience/:id" element={<ExperienceDetail />} />
-            <Route path="/booking" element={<BookingFlow />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AppLayout>
+        <Routes>
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/" element={
+            <AppLayout>
+              <Home />
+            </AppLayout>
+          } />
+          <Route path="/explore" element={
+            <AppLayout>
+              <Explore />
+            </AppLayout>
+          } />
+          <Route path="/trips" element={
+            <AppLayout>
+              <Trips />
+            </AppLayout>
+          } />
+          <Route path="/community" element={
+            <AppLayout>
+              <Community />
+            </AppLayout>
+          } />
+          <Route path="/profile" element={
+            <AppLayout>
+              <Profile />
+            </AppLayout>
+          } />
+          <Route path="/experience/:id" element={
+            <AppLayout>
+              <ExperienceDetail />
+            </AppLayout>
+          } />
+          <Route path="/booking" element={
+            <AppLayout>
+              <BookingFlow />
+            </AppLayout>
+          } />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

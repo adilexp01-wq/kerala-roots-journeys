@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Bell, User } from "lucide-react";
 import { SearchBar } from "@/components/SearchBar";
 import { FilterChip } from "@/components/FilterChip";
 import { ExperienceCard } from "@/components/ExperienceCard";
+import { TopNav } from "@/components/TopNav";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/kerala-hero.jpg";
 import ayurvedaImage from "@/assets/ayurveda-experience.jpg";
@@ -53,6 +53,9 @@ export const Home = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Modern Top Navigation */}
+      <TopNav variant="transparent" />
+      
       {/* Hero Section */}
       <div 
         className="relative h-[60vh] flex flex-col justify-center items-center text-white px-4"
@@ -62,24 +65,9 @@ export const Home = () => {
           backgroundPosition: 'center'
         }}
       >
-        {/* Header */}
-        <div className="absolute top-0 left-0 right-0 flex justify-between items-center p-4 pt-12">
-          <div>
-            <h1 className="text-2xl font-bold">TravelExp</h1>
-            <p className="text-sm opacity-90">Kerala Experiences</p>
-          </div>
-          <div className="flex gap-3">
-            <Button size="icon" variant="ghost" className="text-white hover:bg-white/20">
-              <Bell className="w-5 h-5" />
-            </Button>
-            <Button size="icon" variant="ghost" className="text-white hover:bg-white/20">
-              <User className="w-5 h-5" />
-            </Button>
-          </div>
-        </div>
 
         {/* Hero Content */}
-        <div className="text-center max-w-md mx-auto mt-8">
+        <div className="text-center max-w-md mx-auto mt-16 animate-fade-in">
           <h2 className="text-3xl font-bold mb-3">
             Discover Hidden
             <span className="block gradient-text">Kerala</span>

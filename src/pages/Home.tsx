@@ -56,27 +56,91 @@ export const Home = () => {
       {/* Modern Top Navigation */}
       <TopNav variant="transparent" />
       
-      {/* Hero Section */}
-      <div 
-        className="relative h-[60vh] flex flex-col justify-center items-center text-white px-4"
-        style={{
-          backgroundImage: `linear-gradient(rgba(46, 94, 62, 0.4), rgba(37, 109, 133, 0.4)), url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
+      {/* Modern Hero Section */}
+      <div className="relative h-screen flex flex-col justify-center items-center text-white px-4 overflow-hidden">
+        {/* Dynamic Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-[20s] ease-linear hover:scale-105"
+          style={{
+            backgroundImage: `url(${heroImage})`,
+          }}
+        />
+        
+        {/* Animated Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-br from-palm/60 via-backwater/40 to-sunset/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+        
+        {/* Floating Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl animate-pulse" />
+          <div className="absolute top-40 right-16 w-24 h-24 bg-sunset/20 rounded-full blur-lg animate-pulse delay-1000" />
+          <div className="absolute bottom-32 left-20 w-20 h-20 bg-palm/20 rounded-full blur-md animate-pulse delay-2000" />
+        </div>
 
         {/* Hero Content */}
-        <div className="text-center max-w-md mx-auto mt-16 animate-fade-in">
-          <h2 className="text-3xl font-bold mb-3">
-            Discover Hidden
-            <span className="block gradient-text">Kerala</span>
-          </h2>
-          <p className="text-lg opacity-90 mb-8">
-            Authentic experiences with locals who know Kerala best
+        <div className="relative z-10 text-center max-w-lg mx-auto animate-fade-in">
+          {/* Badge */}
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6 animate-scale-in">
+            <span className="text-sm font-medium">✨ Authentic Kerala Experiences</span>
+          </div>
+          
+          {/* Main Heading */}
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Discover
+            <span className="block bg-gradient-to-r from-sunset via-white to-palm bg-clip-text text-transparent animate-pulse">
+              Hidden Kerala
+            </span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl opacity-90 mb-8 font-light leading-relaxed">
+            Join locals for authentic experiences beyond tourist trails
           </p>
           
-          <SearchBar className="mb-6" />
+          {/* Search Bar with Modern Styling */}
+          <div className="mb-8 animate-slide-in-right delay-300">
+            <SearchBar className="shadow-2xl" />
+          </div>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-in-right delay-500">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-sunset to-sunset/80 hover:from-sunset/90 hover:to-sunset/70 text-white font-semibold px-8 py-3 rounded-xl shadow-2xl hover:shadow-sunset/25 transition-all duration-300 hover:scale-105"
+            >
+              Start Your Journey
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-3 rounded-xl transition-all duration-300 hover:scale-105"
+            >
+              Watch Stories
+            </Button>
+          </div>
+          
+          {/* Stats */}
+          <div className="flex justify-center gap-8 mt-12 animate-fade-in delay-700">
+            <div className="text-center">
+              <div className="text-2xl font-bold text-sunset">500+</div>
+              <div className="text-sm opacity-80">Experiences</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-palm">2K+</div>
+              <div className="text-sm opacity-80">Happy Travelers</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl font-bold text-backwater">50+</div>
+              <div className="text-sm opacity-80">Local Guides</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse" />
+          </div>
         </div>
       </div>
 
